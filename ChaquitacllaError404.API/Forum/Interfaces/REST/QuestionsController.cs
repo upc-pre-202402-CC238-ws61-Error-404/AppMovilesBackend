@@ -66,12 +66,12 @@ public class QuestionsController(IQuestionCommandService questionCommandService,
     }
     
     //TODO: Implement this method when bounded context profiles is finished
-    /*[HttpGet("author/{authorId}")]
-    public async Task<ActionResult> GetQuestionsByUserId([FromRoute] int userId)
+    [HttpGet("author/{authorId}")]
+    public async Task<ActionResult> GetQuestionsByUserId([FromRoute] int authorId)
     {
-        var getAllQuestionsByUserId = new GetAllQuestionsByUserId(userId);
+        var getAllQuestionsByUserId = new GetAllQuestionsByUserId(authorId);
         var questions = await questionQueryService.Handle(getAllQuestionsByUserId);
         var resources = questions.Select(QuestionResourceFromEntityAssembler.ToResourceFromEntity);
         return Ok(resources);
-    }*/
+    }
 }

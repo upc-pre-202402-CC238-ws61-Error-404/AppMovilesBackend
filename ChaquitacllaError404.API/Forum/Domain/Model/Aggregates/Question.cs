@@ -9,7 +9,7 @@ public class Question : IEntityWithCreatedUpdatedDate
 {
     public int Id { get; }
     public string QuestionText { get; private set;}
-    public UserId AuthorId { get; }
+    public int AuthorId { get; }
     
     public Category Category { get;  set; }
     public int CategoryId { get; private set; }
@@ -22,13 +22,13 @@ public class Question : IEntityWithCreatedUpdatedDate
 
     public Question()
     {
-        AuthorId = new UserId(1);
+        AuthorId = 0;
         QuestionText = string.Empty;
     }
     
     public Question(int authorId, int categoryId, string questionText, DateTime date)
     {
-        AuthorId = new UserId(authorId);
+        AuthorId = authorId;
         CategoryId = categoryId;
         QuestionText = questionText;
         Date = date;

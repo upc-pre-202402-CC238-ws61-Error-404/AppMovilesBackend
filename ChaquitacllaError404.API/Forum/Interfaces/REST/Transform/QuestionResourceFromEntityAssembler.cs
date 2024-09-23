@@ -19,7 +19,7 @@ public static class QuestionResourceFromEntityAssembler
         
         return new QuestionResource( 
             entity.Id,
-            entity.AuthorId.Id,
+            entity.AuthorId,
             entity.CategoryId,
             entity.QuestionText,
             entity.Date

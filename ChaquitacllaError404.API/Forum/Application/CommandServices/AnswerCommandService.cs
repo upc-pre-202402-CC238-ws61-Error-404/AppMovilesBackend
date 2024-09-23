@@ -11,10 +11,10 @@ public class AnswerCommandService(IAnswerRepository answerRepository, IQuestionR
 {
     public async Task<Answer?> Handle(CreateAnswerCommand command)
     {
-        //TODO: Implement with profile bounded context is ready
-        /*if(answerRepository.ExistsByAnswerTextAndAuthorId(command.AnswerText, new UserId(command.AuthorId))) 
+        
+        if(answerRepository.ExistsByAnswerTextAndAuthorId(command.AnswerText, command.AuthorId))
             throw new Exception("Answer already exists");
-            */
+
         
         var answer = new Answer(command);
         var question = await questionRepository.FindByIdAsync(command.QuestionId);

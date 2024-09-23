@@ -37,7 +37,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         builder.Entity<Question>().Property(q => q.Id).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<Question>().Property(q => q.QuestionText).IsRequired();
         builder.Entity<Question>().Property(q => q.Date).IsRequired();
-        
+        builder.Entity<Question>().Property(q => q.AuthorId).IsRequired();
         builder.Entity<Category>()
             .HasMany(c => c.Questions)
             .WithOne(q => q.Category)
@@ -46,6 +46,7 @@ public class AppDbContext(DbContextOptions<AppDbContext> options) : DbContext(op
         builder.Entity<Answer>().HasKey(a => a.Id);
         builder.Entity<Answer>().Property(a => a.Id).IsRequired().ValueGeneratedOnAdd();
         builder.Entity<Answer>().Property(a => a.AnswerText).IsRequired();
+        builder.Entity<Answer>().Property(a => a.AuthorId).IsRequired();
 
 
 

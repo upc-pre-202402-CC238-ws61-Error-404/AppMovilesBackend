@@ -21,4 +21,8 @@ public class CareRepository: BaseRepository<Care>, ICareRepository
 
         return crop?.Cares;
     }
+    public async Task<IEnumerable<Care>> FindAllAsync()
+    {
+        return await Context.Set<Care>().ToListAsync();
+    }
 }

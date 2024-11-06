@@ -42,6 +42,15 @@ public class CropCaresController : ControllerBase
         return Ok(resource);
     }
     
+    [HttpGet("cares")]
+    public async Task<ActionResult> GetAllCares()
+    {
+        var getAllCaresQuery = new GetAllCaresQuery();
+        var cares = await careQueryService.Handle(getAllCaresQuery);
+        var resources = cares.Select(CareResourceFromEntityAssembler.ToResourceFromEntity);
+        return Ok(resources);
+    }
+    
     [HttpGet("{cropId}/cares")]
     public async Task<ActionResult> GetCaresByCropId(int cropId)
     {

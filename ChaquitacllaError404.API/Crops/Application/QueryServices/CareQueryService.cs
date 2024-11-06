@@ -17,5 +17,10 @@ public class CareQueryService(ICareRepository careRepository)
     {
         return careRepository.GetCaresByCropIdQuery(query.CropId);
     }
+    
+    public Task<IEnumerable<Care>> Handle(GetAllCaresQuery query)
+    {
+        return careRepository.FindAllAsync();
+    }
 }
 

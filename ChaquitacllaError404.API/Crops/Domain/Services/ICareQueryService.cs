@@ -8,4 +8,6 @@ public interface ICareQueryService
     Task<Care?> Handle(GetCareByIdQuery query);
     
     Task<IEnumerable<Care>> Handle(GetCareByCropIdQuery query);
+    
+    Task<IEnumerable<Care>> Handle(GetAllCaresQuery query);
 }
